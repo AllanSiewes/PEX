@@ -1,0 +1,370 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo e fonte */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f8fa;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Colunas decorativas laterais */
+.column-decor {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    background: linear-gradient(180deg, #1e7241 0%, #14652a 100%);
+    z-index: -1;
+}
+.left-column { left: 0; }
+.right-column { right: 0; }
+
+/* Header e Navegação */
+header {
+    background-color: #1e7241;
+    padding: 15px 30px;
+    box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 10px 15px;
+    border-radius: 8px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.logo img {
+    width: 200px;
+    display: block;
+}
+.logo img:hover {
+    filter: brightness(1.2);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links li {
+    position: relative; /* Já tinha, importante para dropdown */
+}
+
+/* NOVA REGRA: para dropdown funcionar */
+.dropdown {
+    position: relative;
+}
+
+.nav-links a {
+    color: #f5f8fa;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 6px 0;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #a3d386;
+    border-bottom: 2px solid #a3d386;
+}
+
+/* Dropdown - corrigido para submenu não sumir */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;      /* corrigido para ficar abaixo do item pai */
+    left: 0;
+    background-color: #166131;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 6px 12px rgb(0 0 0 / 0.15);
+    min-width: 220px;
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #e7f0db;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-left: 3px solid transparent;
+    transition: background-color 0.25s ease, border-left-color 0.25s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #1f7a3c;
+    border-left-color: #a3d386;
+}
+
+/* Mostrar o dropdown quando hover no pai */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Menu Toggle para Mobile */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    color: #f5f8fa;
+    cursor: pointer;
+    user-select: none;
+    background: none;
+    border: none;
+}
+
+/* Main container */
+main {
+    flex-grow: 1;
+    max-width: 900px;
+    margin: 60px auto 80px auto;
+    padding: 40px 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.05);
+    min-height: 400px;
+}
+
+/* Títulos */
+h1 {
+    font-size: 2.6rem;
+    color: #14652a;
+    margin-bottom: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #1e7241;
+    margin-top: 40px;
+    margin-bottom: 18px;
+    font-weight: 600;
+    border-bottom: 2px solid #a3d386;
+    padding-bottom: 6px;
+}
+
+/* Parágrafos e listas */
+p {
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+    color: #444;
+}
+
+ul {
+    margin-left: 20px;
+    list-style-type: disc;
+    margin-bottom: 25px;
+    color: #555;
+    font-size: 1.05rem;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Links dentro do conteúdo */
+a {
+    color: #1e7241;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #14652a;
+}
+
+/* Formulário contato */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+label {
+    font-weight: 600;
+    color: #333;
+    font-size: 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1.8px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+    resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #1e7241;
+    box-shadow: 0 0 8px #a3d386;
+}
+
+button[type="submit"] {
+    background-color: #1e7241;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    max-width: 160px;
+    align-self: flex-start;
+}
+
+button[type="submit"]:hover {
+    background-color: #14652a;
+}
+
+/* Carrossel */
+.carousel {
+    position: relative;
+    margin: 30px 0 40px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgb(0 0 0 / 0.08);
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    user-select: none;
+}
+
+.carousel-item img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+.carousel button.prev,
+.carousel button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(30, 114, 65, 0.7);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 8px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.carousel button.prev:hover,
+.carousel button.next:hover {
+    background-color: #14652a;
+}
+
+.carousel button.prev {
+    left: 15px;
+}
+
+.carousel button.next {
+    right: 15px;
+}
+
+/* Footer */
+footer {
+    background-color: #f5f8fa;
+    padding: 20px 0;
+    color: #777;
+    font-size: 0.9rem;
+    border-top: 1px solid #ddd;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #1e7241;
+        position: absolute;
+        top: 60px;
+        right: 30px;
+        width: 200px;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgb(0 0 0 / 0.15);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .dropdown-menu {
+        position: relative;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    /* Para evitar problema no mobile, dropdown não aparece no hover */
+    .dropdown:hover .dropdown-menu {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    main {
+        margin: 80px 20px 60px 20px;
+        padding: 25px 20px;
+    }
+
+    .column-decor {
+        display: none;
+    }
+}
